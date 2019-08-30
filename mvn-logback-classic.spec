@@ -4,12 +4,14 @@
 #
 Name     : mvn-logback-classic
 Version  : 1.2.1
-Release  : 2
+Release  : 3
 URL      : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.jar
 Source0  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.jar
 Source1  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar
 Source2  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.pom
 Source3  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.pom
+Source4  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+Source5  : https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : EPL-1.0 LGPL-2.1-only
@@ -27,6 +29,7 @@ data components for the mvn-logback-classic package.
 
 
 %prep
+%setup -q -n META-INF
 
 %build
 
@@ -43,6 +46,12 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.1
 cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.pom
+
 
 %files
 %defattr(-,root,root,-)
@@ -53,3 +62,5 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/ch/qos/logback/logback-
 /usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.pom
 /usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.jar
 /usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.1/logback-classic-1.2.1.pom
+/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+/usr/share/java/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.pom
